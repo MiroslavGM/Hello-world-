@@ -1,0 +1,8 @@
+x = float(input("Weight: "))
+y = input("kg or lbs: ")
+if y.lower() == "kg":
+    print("Weight in lbs: " + str(x * 2.2))
+elif y.lower() == "lbs":
+    print("Weight in kg: " + str(x / 2.2))
+else:
+    print("Please type kg or lbs.")
