@@ -32,3 +32,25 @@ print(x)
 print('Operator precedence 2:')
 x = (10 + 3) * 2
 print(x)
+print('3 is less than 10 (True):')
+x = 3 < 10
+print(x)
+print('3 is more than 10 (False):')
+x = 3 > 10
+print(x)
+print('3 is less/equal than 10 (True):')
+x = 3 <= 10
+print(x)
+print('3 is more/equal than 10 (False):')
+x = 3 >= 10
+print(x)
+print('3 is equal than 10 (False):')
+x = 3 == 10
+print(x)
+print('3 is not equal than 10 (True):')
+x = 3 != 10
+print(x)
+print(x)
+print('Operator precedence 2:')
+x = (10 + 3) * 2
+print(x)
