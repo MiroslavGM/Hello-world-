@@ -1,0 +1,28 @@
+print('Basic addition:')
+x = 10
+x += 3
+print(x)
+print('Basic subtraction:')
+x = 10
+x -= 3
+print(x)
+print('Basic multiplication:')
+x = 10
+x *= 3
+print(x)
+print('Basic division:')
+x = 10
+x /= 3
+print(x)
+print('Integer division:')
+x = 10
+x //= 3
+print(x)
+print('Modulus operator/remainder operator/integer remainder operator:')
+x = 10
+x %= 3
+print(x)
+print('Exponent operator:')
+x = 10
+x **= 3
+print(x)
