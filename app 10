@@ -1,0 +1,6 @@
+u = input("Type lbs for pounds: ")
+w = float(input("Insert your weight: "))
+if u == "lbs":
+    print("Weight: " + str(w / 2.2))
+else:
+    print("Weight: " + str(w * 2.2))
