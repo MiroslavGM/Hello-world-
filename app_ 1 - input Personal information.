@@ -1,0 +1,12 @@
+print("Type personal information please.")
+i1 = input("First name: ")
+i2 = input("Last name: ")
+i3 = input("Age: ")
+i4 = input("Are you a new patient? (Type 'Yes' or 'No') ")
+if i4.lower() == "yes":
+    print("New patient: ")
+elif i4.lower() == "no":
+    print("Old patient (find old record): ")
+else:
+    print("Please type 'yes' or 'no'. ")
+print(i1, i2, "-", i3, "years old. ")
