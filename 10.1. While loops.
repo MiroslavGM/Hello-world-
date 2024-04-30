@@ -1,0 +1,8 @@
+i = int(input("Type your while loop number: "))
+while i <= 10:
+    print(i)
+    i = i + 1
+i = int(input("Type your while loop number: "))
+while i <= 5:
+    print(i * "*")
+    i = i + 1
