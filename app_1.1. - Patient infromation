@@ -1,0 +1,19 @@
+age = 20
+first_name = 'John'
+last_name = 'Smith'
+new_patient = True
+print('First name:')
+print(first_name)
+print('Last name:')
+print(last_name)
+print('Age:')
+print(age)
+print('New patient:')
+print(new_patient)
+print(" ")
+print("First name: John")
+print("Last name: Smith")
+print("Age: 20")
+print("New patient: True")
+print(" ")
+print("Patients information: John Smith, 20 years old, new patient")
