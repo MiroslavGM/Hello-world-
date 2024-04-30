@@ -1,0 +1,16 @@
+temperature = float(input("Type degrees in Celsius: "))
+
+if temperature > 31:
+    print("It's really hot outside! Be cautious!")
+    print("Drink plenty of water and stay in the shade all the time if possible!")
+elif temperature > 24:
+    print("It's a bit hot outside.")
+    print("Don't forget to drink water.")
+elif temperature >= 17 and temperature <= 24:
+    print("It's a nice day.")
+elif temperature < 17 and temperature > 5:
+    print("It's chilly outside.")
+    print("Put on your jacket.")
+else:
+    print("It's cold outside!")
+    print("Dress warm and tight!")
