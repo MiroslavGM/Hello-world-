@@ -1,0 +1,4 @@
+numbers = (1, 2, 3, 3, 3, 3)
+print("My tuple - " + str(numbers))
+print("How many times is 3 in my tuple? " + "Exactly " + str(numbers.count(3)) + " times.")
+print("In which position is the number 2 in my tuple? " + "It will be in " + str(numbers.index(2)) + " place.")
