@@ -1,0 +1,10 @@
+first_name = input("What is your first name? ")
+last_name = input("What is your last name? ")
+age = input("How old are you? ")
+new_patient = input("Are you a new patient? (Type 'yes' or 'no') ")
+if new_patient == str.lower("yes"):
+    print("New patient:", first_name, last_name, "-", age, "years old. ")
+elif new_patient == str.lower("no"):
+    print(first_name, last_name,"-", age, "years old.", "Has a old record with us. ")
+else:
+    print("Type 'yes' or 'no', please. ")
