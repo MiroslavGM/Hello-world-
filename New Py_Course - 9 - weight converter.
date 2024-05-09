@@ -1,0 +1,7 @@
+weight = input("Enter your weight in pounds: ")
+kilograms = float(weight) / 2.2
+print("Your weight in kilograms is " + str(kilograms) + " kg. ")
+
+weight = float(input("Enter your weight in pounds: "))
+kilograms = weight / 2.2
+print("Your weight in kilograms is " + str(kilograms) + " kg. ")
