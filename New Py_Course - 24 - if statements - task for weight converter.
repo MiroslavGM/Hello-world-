@@ -1,0 +1,10 @@
+weight = float(input("Enter your weight: "))
+unit = str(input("kg or lbs: "))
+if unit.lower() == "kg":
+    pounds = weight * 2.2
+    print(f"Your weight in pounds is {pounds} lbs. ")
+elif unit.lower() == "lbs":
+    kilograms = weight / 2.2
+    print(f"Your weight in kilograms is {kilograms} kg. ")
+else:
+    print("Type your weight and unit, please. ")
