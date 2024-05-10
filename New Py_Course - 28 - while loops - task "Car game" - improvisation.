@@ -1,0 +1,22 @@
+print("Car game!")
+print("Type 'help' for instructions:")
+quit = "quit"
+typing = 0
+no_limit = 3
+while typing < no_limit:
+    instructions = input(">")
+    if instructions.lower() == quit:
+        print("Thank you for playing!")
+        break
+    elif instructions.lower() == "help":
+        print("""
+start - to start the car
+stop - to stop the car
+quit - to exit the game :(
+        """)
+    elif instructions.lower() == "start":
+        print("Car started... Ready to go!")
+    elif instructions.lower() == "stop":
+        print("Car stopped.")
+    else:
+        print("I don't understand.")
