@@ -1,0 +1,29 @@
+print("Car game!")
+print("Type 'help' for instructions:")
+instructions = ""
+started = False
+while True:
+    instructions = input(">").lower()
+    if instructions == "start":
+        if started:
+            print("The car is already started!")
+        else:
+            started = True
+            print("Car started...")
+    elif instructions == "stop":
+        if not started:
+            print("Car is already stopped!")
+        else:
+            started = False
+            print("Car stopped.")
+    elif instructions == "help":
+        print("""
+start - to start the car
+stop - to stop the car
+quit - to exit the game ;(
+        """)
+    elif instructions == "quit":
+        print("Thank you for playing the game!")
+        break
+    else:
+        print("Sorry, I don't understand.")
