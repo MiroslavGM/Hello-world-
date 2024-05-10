@@ -1,0 +1,7 @@
+guess_count = int(input("Guess: "))
+while guess_count != 9:
+    guess_count = int(input("Guess: "))
+if guess_count == 9:
+    print("You win!")
+else:
+    print("Try again!")
