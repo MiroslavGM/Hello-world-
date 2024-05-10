@@ -1,0 +1,33 @@
+is_hot = False
+is_cold = False
+
+if is_hot and is_cold:
+    print("It is hot in the sun and cold in the shade!")
+    print("Bring your jacket and some water with you!")
+elif is_cold:
+    print("It's a cold day!")
+    print("Wear warm clothes!")
+elif is_hot:
+    print("It's a hot day!")
+    print("Drink plenty of water!")
+else:
+    print("It is a lovely day!")
+print("Enjoy your day!")
+
+print(" ")
+
+is_hot = True
+is_cold = True
+
+if is_hot and is_cold:
+    print("It is hot in the sun and cold in the shade!")
+    print("Bring your jacket and some water with you!")
+elif is_cold:
+    print("It's a cold day!")
+    print("Wear warm clothes!")
+elif is_hot:
+    print("It's a hot day!")
+    print("Drink plenty of water!")
+else:
+    print("It is a lovely day!")
+print("Enjoy your day!")
