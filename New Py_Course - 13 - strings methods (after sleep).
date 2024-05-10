@@ -1,0 +1,5 @@
+course = "python for beginners"
+course = course.title()
+course = course.replace("F", "f")
+course = course.__add__("!")
+print(course)
