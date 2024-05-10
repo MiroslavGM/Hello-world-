@@ -1,0 +1,7 @@
+x = (10 + 3) * 2 ** 2
+print(x)
+# Precedence order:
+# 1. Parenthesis [()];
+# 2. Exponentiation [**];
+# 3. Multiplication or division [* or /, //, %];
+# 4. Addition or subtraction [+ or -].
