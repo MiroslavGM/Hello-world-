@@ -1,0 +1,27 @@
+x = 10
+x += 3  # x = x + 3 (addition)
+print(x)
+
+x = 10
+x -= 3  # x = x - 3 (subtraction)
+print(x)
+
+x = 10
+x *= 3  # x = x * 3 (multiplication)
+print(x)
+
+x = 10
+x /= 3  # x = x / 3 (division)
+print(x)
+
+x = 10
+x //= 3  # x = x // 3 (division, integer)
+print(x)
+
+x = 10
+x %= 3  # x = x % 3 (division, remainder)
+print(x)
+
+x = 10
+x **= 3  # x = x + 3 (exponentiation)
+print(x)
