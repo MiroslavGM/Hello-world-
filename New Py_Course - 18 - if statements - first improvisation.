@@ -1,0 +1,11 @@
+temperature = float(input("Enter temperature: "))
+if temperature == temperature >= 18 and temperature <= 24:
+    print("It is a nice day! Go out and enjoy it!")
+elif temperature == temperature < 18 and temperature >= 10:
+    print("It is chilly outside! Get your jacket")
+elif temperature == temperature > 24 and temperature <= 31:
+    print("It is warm outside. Have some water with you.")
+elif temperature == temperature < 10:
+    print("It is cold outside! Wear warm clothes!")
+else:
+    print("It is really hot outside! Drink plenty of water and stay under shade!")
