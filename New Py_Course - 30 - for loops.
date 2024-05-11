@@ -1,0 +1,17 @@
+for item in "Python":
+    print(item)
+
+for name in ['Miro', "Nikolay", "Bat Dido"]:
+    print(name)
+
+for numbers in [1, 2, 3, 4, 5]:
+    print(numbers)
+
+for range_1 in range(5):
+    print(range_1)
+
+for range_2 in range(5, 10):
+    print(range_2)
+
+for range_3 in range(5, 10, 2):
+    print(range_3)
