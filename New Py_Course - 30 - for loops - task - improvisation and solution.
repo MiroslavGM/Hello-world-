@@ -1,0 +1,15 @@
+prices = [10, 20, 30]
+total = 0
+for prices in prices:
+    total += prices
+    print("Price:", prices, "dollars.")
+print(f"Total: {total} dollars.")
+
+print("")
+
+prices = [10, 20, 30]
+
+total = 0
+for price in prices:
+    total += price
+print(f"Total: {total} dollars.")
