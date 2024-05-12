@@ -1,0 +1,6 @@
+prices = [float(input("Price 1: ")), float(input("Price 2: ")), float(input("Price 3: "))]
+total = 0
+for price in prices:
+    print(f"Costs {price} dollars.")
+    total += price
+print(f"Total cost is {total} dollars.")
