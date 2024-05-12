@@ -1,0 +1,10 @@
+print("Type and enter 0 when ready and 0.1 to exit!")
+cost = 0
+total = 0
+while True:
+    cost = float(input("Cost: ").lower())
+    total += cost
+    if cost == 0:
+        print(f"Total is {total} dollars.")
+    elif cost == 0.1:
+        break
