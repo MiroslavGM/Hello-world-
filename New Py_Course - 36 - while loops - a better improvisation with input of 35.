@@ -1,0 +1,9 @@
+print("Type and enter 0 when ready!")
+cost = 0
+total = 0
+while True:
+    cost = float(input("Cost: "))
+    total += cost
+    if cost == 0:
+        print(f"Total is {total} dollars.")
+        break
