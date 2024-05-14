@@ -1,0 +1,11 @@
+numbers = range(1, int(input("N: ")))
+joke = ""
+for joke in numbers:
+    if joke % 3 == 0 and joke % 5 == 0:
+        print("FizzBuzz")
+    elif joke % 5 == 0:
+        print("Buzz")
+    elif joke % 3 == 0:
+        print("Fizz")
+    else:
+        print(joke)
