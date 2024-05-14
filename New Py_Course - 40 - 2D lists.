@@ -1,0 +1,18 @@
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print(matrix)
+for x in matrix:
+    print(x)
+print(matrix[0])
+print(matrix[0][1])
+matrix[0][1] = 20
+print(matrix)
+for y in matrix:
+    print(y)
+matrix[0][1] = 2
+for row in matrix:
+    for list in row:
+        print(list)
