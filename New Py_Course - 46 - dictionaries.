@@ -1,0 +1,12 @@
+customer = {
+    "Name": "Georgi Georgiev",
+    "Age": 33,
+    "Is_verified": True
+}
+print(customer["Name"])
+print(customer.get("name"))
+print(customer.get("Birthdate", "06.05.1994"))
+customer["Name"] = "George Georgev"
+print(customer["Name"])
+customer["Birthday"] = "06.05.1990"
+print(customer["Birthday"])
