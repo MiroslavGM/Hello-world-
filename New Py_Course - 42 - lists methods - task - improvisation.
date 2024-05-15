@@ -1,0 +1,6 @@
+objects = [int(input(">")), int(input(">")), int(input(">")), int(input(">")), int(input(">")), int(input(">"))]
+erase = int(input("Remove: "))
+for text in objects:
+    if erase == text:
+        text = ""
+    print(text)
