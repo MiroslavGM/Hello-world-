@@ -1,0 +1,12 @@
+class Person:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def talk(self):
+        print(f"{name.x} {name.y}: I donate blood every two-three months.")
+
+
+name = Person("Miroslav", "Manahilov")
+print(name.x, name.y)
+name.talk()
