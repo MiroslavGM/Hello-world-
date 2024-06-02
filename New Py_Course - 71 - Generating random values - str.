@@ -1,0 +1,5 @@
+import random
+
+members = ["Miro", "bat Dido", "bat Niki", "bat Gergi"]
+leader = random.choice(members)
+print(leader)
