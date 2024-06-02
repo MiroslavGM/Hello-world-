@@ -1,4 +1,4 @@
 import random
 
 for i in range(3):
-    print(random.randint(10, 21))  # returns the random int numbers between "a" and "b".
+    print(random.randint(10, 21))  # returns the random int numbers between and "a" and "b".
