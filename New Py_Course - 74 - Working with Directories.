@@ -1,0 +1,7 @@
+from pathlib import Path
+
+path = Path("ecommerce")  #should be a True statement but in Google colab I don't have this directory "ecommerce"
+print(path.exists())
+
+path = Path("ecommerce1")
+print(path.exists())
