@@ -1,0 +1,5 @@
+from pathlib import Path
+
+path = Path()
+for file in path.glob("*"):  #1. That is for all files and directories; 2. "*.*" for all files; 3. "*.py" for all py files; 4. "*.xls" for all spreadsheets from Exel.
+    print(file)
