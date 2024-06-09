@@ -1,0 +1,9 @@
+pwd
+import pandas as pd
+df = pd.read_csv('C:\\Users\\Miros\\vgsales.csv')
+df
+df.shape
+print("Hello, World!")
+df.describe()
+df.values
+# df.describe()
