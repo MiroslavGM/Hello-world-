@@ -1,0 +1,49 @@
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('products/', include('products.urls'))
+]
+
+######################################################
+
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def index(request):
+    return HttpResponse("Hello, World!")
+
+
+def new(request):
+    return HttpResponse("New products!")
+
+
+def popular(request):
+    return HttpResponse("Popular right now!")
+
+
+#######################################################
+
+from django.urls import path
+from . import views
+
+
+urlpatterns = [
+    path('', views.index),
+    path('new/', views.new),
+    path('popular/', views.popular)
+]
+
+#########################################################
+
+from django.db import models
+
+
+class Product(models.Model):
+    name = models.CharField(max_lenght=255)
+    price = models.FloatField(max_length=2_000_000_000)
+    stock = models.IntegerField(max_length=2_000_000)
+    image_url = models.CharField(max_length=2083)
+
