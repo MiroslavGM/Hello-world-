@@ -1,0 +1,12 @@
+message = "Python Programming"
+print(message)
+message = 'Python "Programming'
+print(message)
+message = "Python \"Programming"
+print(message)
+message = "Python \nProgramming"
+print(message)
+message = """Python 
+Programming
+"""
+print(message)
