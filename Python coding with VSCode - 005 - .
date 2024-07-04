@@ -1,0 +1,8 @@
+first = "Miroslav"
+last = "Manahilov"
+full = first + " " + last
+print(full)
+full = f"{first} {last}"
+print(full)
+full = f"{len(first)} {4 + 4}"
+print(full)
