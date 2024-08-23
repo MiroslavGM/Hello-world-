@@ -1,0 +1,9 @@
+import math
+
+PI = 3.14
+print(round(PI))
+Y = -0.33
+print(abs(Y))
+# for more -> Google -> python 3 build-in functions
+print(math.floor(PI))
+# for more -> Google -> python 3 math module
