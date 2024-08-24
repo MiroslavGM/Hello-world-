@@ -1,0 +1,23 @@
+name = "Miro"
+if not name:
+    print("Name is empty!")
+
+name = ""
+if not name:
+    print("Name is empty!")
+
+name = " "
+if not name.strip():
+    print("Name is empty!")
+
+name = "Miro"
+if name:
+    print(f"Hello, {name}!")
+
+age = 22
+if age >= 18 and age < 65:
+    print("Eligible")
+
+age = 28
+if 18 <= age < 65:
+    print("Eligible")
