@@ -1,0 +1,11 @@
+x = input("x: ")
+
+print(int(x))
+print(float(x))
+print(bool(x))
+
+# False statements with bool -> ""; 0; []; None
+
+x = int(input("x: "))
+y = x + 1
+print(y)
