@@ -1,0 +1,11 @@
+message = "a"
+
+
+def greet():
+    global message
+    message = "b"
+
+
+greet()
+print(message)
+# Using global is not a good practice.
