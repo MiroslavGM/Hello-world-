@@ -1,0 +1,7 @@
+# 1. Pressing "End" -> goes to the end of the row;
+# 2. Pressing "Home" -> goes to the start of the row;
+# 3. Pressing "ctrl + End" -> goes to the bottom of the file;
+# 4. Pressing "ctrl + Home" -> goes to the start of the file;
+# 5. Marking a row and pressing "alt" and arrow keys to move it in the file;
+# 6. Shift + alt + down or up key -> copy and past a row (or marked);
+# 7. Marking + ctrl + / -> # comments or uncomment;
