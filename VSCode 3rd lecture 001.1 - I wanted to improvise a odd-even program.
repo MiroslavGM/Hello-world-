@@ -1,0 +1,8 @@
+try:
+    x = int(input("x: "))
+    if x % 2 == 0:
+        print("Even number!")
+    elif x % 2 != 0:
+        print("Odd number!")
+except (TypeError, ValueError):
+    print("Enter whole numbers only!")
