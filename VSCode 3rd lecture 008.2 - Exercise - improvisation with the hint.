@@ -1,0 +1,5 @@
+for numbers in range(1, 10):
+  if numbers % 2 == 0:
+    print(numbers)
+    if numbers == 8:
+      print("We have 4 even numbers!")
