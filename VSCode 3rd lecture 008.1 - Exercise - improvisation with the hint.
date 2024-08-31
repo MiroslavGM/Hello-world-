@@ -1,0 +1,6 @@
+numbers = range(1, 10)
+for evens in numbers:
+    if evens % 2 == 0:
+        print(evens)
+    if evens == 8:
+        print("We have 4 even numbers!")
