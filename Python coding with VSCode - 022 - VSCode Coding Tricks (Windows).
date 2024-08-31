@@ -5,3 +5,4 @@
 # 5. Marking a row and pressing "alt" and arrow keys to move it in the file;
 # 6. Shift + alt + down or up key -> copy and past a row (or marked);
 # 7. Marking + ctrl + / -> # comments or uncomment;
+# 8. Marking + alt + down-up for moving it;
