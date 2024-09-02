@@ -1,0 +1,113 @@
+# basic:
+
+def greet():
+  print("Hello there!")
+  print("General Kenobi!")
+
+
+greet()
+
+
+# Parameters vs Arguments:
+
+def greet(first_name, last_name):
+  print(F"Hello, {first_name} {last_name}!")
+  print("Welcome aboard!")
+
+
+greet("Miroslav", "Manahilov")
+
+
+# Types of Functions:
+# 1. This is a better version than the above def, because it is multifunctional;
+# 2. When we use "return" we have a value, otherwise we have "None";
+
+def get_greeting(name):
+  return f"Hello, {name}!"
+
+
+message = get_greeting("Miro")
+print(message)
+
+
+def increment(number, by):
+  return number + by
+
+
+increment(2, by=1)              # I don't know why it doesn't work! Maybe can't do more than one calling in the same def/code??
+result = increment(2, by=3)
+print(result)
+print(increment(1, by=1))
+increment(2, by=2)
+
+
+# Default/Optional Arguments:
+
+def increment(number, by=1):
+  return number + by
+
+
+print(increment(2))
+print(increment(2, 3))
+
+
+# *args/Number of arguments:
+
+def multiply(*numbers):
+  total = 1
+  for number in numbers:
+    total *= number
+  return total
+
+
+print(multiply(2, 3, 4, 5))
+
+
+# **args:
+
+def save_user(**user):
+  print(user)
+  print(user["id"])
+  print(user["name"])
+  print(user["age"])
+
+
+save_user(id=1, name="Miro", age=28)
+
+
+# Scope:
+# Never use "global" function!;
+
+message = "a"
+
+
+def greet(name):
+  message = "b"
+
+
+def send_email(name):
+  message = "b"
+
+
+greet("Miro")
+print(message)
+
+
+# Exercise:
+
+def fizz_buzz(input):
+    if input % 3 == 0 and input % 5 == 0:
+        return "FizzBuzz!"
+    if input % 3 == 0:
+        return "Fizz!"
+    if input % 5 == 0:
+        return "Buzz!"
+    return input
+
+
+print(fizz_buzz(1))
+print(fizz_buzz(3))
+print(fizz_buzz(5))
+print(fizz_buzz(15))
+print(fizz_buzz(16))
+print(fizz_buzz(10 + 5))
