@@ -1,0 +1,71 @@
+# basic for loops:
+
+for number in range(3):
+  print("Attempt", number)
+
+for number in range(1, 4):
+  print("Attempt", number)
+
+for number in range(3):
+  print("Attempt", number + 1)
+
+for number in range(3):
+  print("Attempt", number + 1, (number + 1) * ".")
+
+for number in range(1, 4):
+  print("Attempt", number, number * ".")
+
+for number in range(1, 10, 2):
+  print("Attempt", number, number * ".")
+
+# For..Else loops:
+
+successful = False
+for number in range(3):
+  print("Attempt")
+  if successful:
+    print("Successul!")
+    break
+else:
+  print("Attempted 3 times and failed!")
+
+# Nested loops:
+
+for x in range(3):
+  for y in range(3):
+    print(F"({x}, {y})")
+
+# Iterables:
+
+print(type(5))
+print(type(range(5)))
+
+for x in range(3):
+  print(x)
+
+for letter in "Red":
+  print(letter)
+
+for number in [1, 2, 3, 4]:
+  print(number)
+
+shopping_cart = input("> ")
+for item in shopping_cart:
+  print(item)
+
+# Exercise:
+
+count = 0
+for x in range(1, 10):
+  if x % 2 == 0:
+    count += 1
+    print(x)
+else:
+  print(F"We have {count} even numbers!")
+
+# Goofing around:
+count = 0
+for x in range(2, 9, 2):
+  count += 1
+  print(x)
+print(f"We have {count} even numbers!")
