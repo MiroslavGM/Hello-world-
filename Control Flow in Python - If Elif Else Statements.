@@ -1,0 +1,92 @@
+# Conditional Statements:
+# Basic:
+
+temperature = 31.2
+if temperature > 30:
+    print("It's hot!")
+    print("Drink plenty of water!")
+elif temperature > 20:
+    print("It's nice!")
+else:
+    print("It's cold!")
+    print("Dress accordingly!")
+print("Done!")
+
+
+# I want to spice things a little:
+
+print('Enter temperature in integers or floats or enter "quit" to exit:')
+while True:
+    temperature = input("> ")
+    if temperature.lower() == "quit":
+        break
+    try:
+        temperature = float(temperature)
+        if temperature >= 58:
+            print("Call the fire department if it really is so hot!")
+            break
+        elif temperature > 40:
+            print("It's too hot outside, stay inside if possible!")
+            print("Have plenty of water with you and stay under shade!")
+        elif temperature > 25:
+            print("It's hot outside! Stay hydrated and under shade!")
+        elif temperature >= 18:
+            print("Can't get better than that! Call a friend!")
+        elif temperature > 4:
+            print("It's cold ouside! Dress accordinly!")
+        else:
+            print("It's too cold outside! Dress yourself warm and tide!")
+    except ValueError:
+        print("Enter integer or floats only, please!")
+print("Done!")
+
+
+# Ternary Operator:
+
+age = int(input("Enter your age: "))
+message = "Eligible!" if age >= 18 else "Not eligible!"
+print(message)
+
+
+# In a while loop with input^:
+
+print('Enter your age or "quit" for exit: ')
+while True:
+    age = input("> ")
+    if age.lower() == "quit":
+        break
+    try:
+        age = int(age)
+        message = "Eligible!" if age >= 18 else "Not eligible!"
+        print(message)
+    except ValueError:
+        print("Integers only, please!")
+print("Done!")
+
+
+# Logical Operators:
+
+high_income = False
+good_credit = False
+student = True
+
+if high_income and good_credit and not student:
+    print("Eligible for a higher loan!")
+elif high_income and good_credit and student:
+    print("Eligible for a student loan!")
+elif (high_income or good_credit) and not student:
+    print("Eligible for a lower loan!")
+else:
+    print("Not eligble for a loan!")
+
+
+# Short-circuit Evaluation:
+
+# 1. Logical Operators (and, or, not) are short-circuit.
+
+
+# Chaining Comparison Operators:
+
+age = 22
+if 18 <= age < 65:
+  print("Eligible!")
