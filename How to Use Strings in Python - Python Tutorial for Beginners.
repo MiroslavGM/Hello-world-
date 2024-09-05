@@ -1,0 +1,60 @@
+# Strings:
+
+course = "Python Programming!"
+print(len(course))
+print(course[0])
+print(course[1:7])
+print(course[-1])
+print(course[0:])
+print(course[:6])
+print(course[:])
+print(course[::-1])
+print(course[-2:-13:-1], course[-14::-1])
+
+
+# Escape Sequences:
+
+# \" -> If we want "
+# \' -> If we want '
+# \\ -> If we want backslash
+# \n -> New row
+
+course = "Python \"Programming\"!"
+print(course)
+course = 'Python \'Programming\'!'
+print(course)
+course = "Python \\Programming/!"
+print(course)
+course = "Python \nProgramming!"
+print(course)
+
+
+# Formated Strings:
+
+title = "Master-eng."
+first = "Miro"
+last = "Manahilov"
+full = f"{len(title)} {first} {last} {2 + 2}"
+print(full)
+
+
+# Useful Functions/String Methods:
+
+course = "Python programming!"
+course_capital = course.upper()  # If we want to save it for now and use it later!
+print(course_capital)
+print(course)
+print(course.lower())
+print(course.title())
+
+course = "  Python programming!  "
+print(course)
+print(course.strip())
+print(course.rstrip())
+print(course.lstrip())
+print(course.find("pro"))
+print(course.find("Pro"))
+print(course.replace("P", "T"))
+print("pro" in course)
+print("Pro" in course)
+print("Pro" not in course)
