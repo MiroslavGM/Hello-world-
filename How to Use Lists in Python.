@@ -1,0 +1,113 @@
+# Lists:
+
+letters = ["a", "b", "c"]
+matrix = [[0, 1], [2, 3]]
+zeros = [0] * 5
+combined = zeros + letters
+numbers = list(range(1, 21))
+chars = list("Hello, World!")
+print(letters)
+print(matrix)
+print(zeros)
+print(combined)
+print(numbers)
+print(chars)
+print(len(chars))
+
+for zeros in [0] * 4:
+    print(zeros)
+
+
+# Accessing Items:
+
+letters = ["a", "b", "c", "d"]
+letters[0] = "A"
+print(letters[0])
+print(letters[-1])
+print(letters[0:3])
+print(letters[:3])
+print(letters[0:])
+print(letters[:])
+# This expresion write the whole list from the first : and will bounce every second variable:
+print(letters[::2])
+print(letters[0:4:2])
+
+numbers = list(range(20))
+print(numbers)
+print(numbers[::2])
+print(numbers[::-1])
+print(numbers[::-2])
+print(numbers[:-1])
+
+
+# Unpacking Lists:
+
+numbers = [1, 2, 3]
+first = numbers[0]
+second = numbers[1]
+third = numbers[2]
+print(first)
+print(second)
+print(third)
+
+numbers = [1, 2, 3]
+first, second, third = numbers
+print(second)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+first, second, *others = numbers
+print(first)
+print(others)
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+first, *others, last = numbers
+print(first, last)
+print(others)
+
+
+# Looping over Lists:
+
+letters = ["a", "b", "c"]
+
+for letter in enumerate(letters):
+    print(letter)
+
+for letter in enumerate(letters):
+    print(letter[0], letter[1])
+
+for index, letter in enumerate(letters):
+    print(index, letter)
+
+
+# Adding/Removing Items:
+
+letters = ["a", "b", "c"]
+
+# Add:
+letters.append("d")  # Adds after the last objects;
+letters.insert(0, "-")  # Adds where I want and what I want;
+print(letters)
+
+# Remove:
+letters.pop(0)  # Removes the last object if not selected;
+print(letters)
+letters.remove("b")  # Removes the first object it stumbles upon;
+print(letters)
+del letters[0:3]  # Removes from somewhere to somewhere;
+print(letters)
+letters.clear()  # Removes everything;
+print(letters)
+
+
+# Finding Items:
+
+letters = ["a", "b", "c"]
+print(letters.count("d"))
+print(letters.count("a"))
+print(letters.index("a"))
+# print(letters.index("d")) -> we don't do that, because it triggers an error...
+# instead we do this:
+if "d" in letters:
+    print(letters.index("d"))
+if "c" in letters:
+    print(letters.index("c"))
