@@ -1,0 +1,18 @@
+# Sets:
+
+numbers = [1, 1, 2, 3, 4]  # This is a list;
+uniques = set(numbers)  # Here it becomes a set and removes the dup's;
+second = {1, 4}  # We can make sets with {...};
+second.add(5)
+second.remove(4)
+print(len(second))
+print(uniques)
+print(second)
+print(uniques | second)  # This combines the two sets with every unique;
+print(uniques & second)  # This shows only the same in the two sets;
+print(uniques - second)  # Removes the same's from the first only;
+print(uniques ^ second)  # Removes the same's only from both;
+
+# We can't use index functions with sets so we do this instead:
+if 1 in uniques:
+    print("Yes!")
