@@ -1,0 +1,7 @@
+n = int(input("Enter integers from 1 to 100: "))
+if 5 < n < 21:
+    print("Weird")
+elif n % 2 == 0:
+    print("Not Weird")
+else:
+    print("Weird")
