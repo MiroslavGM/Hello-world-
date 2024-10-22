@@ -1,0 +1,24 @@
+import random
+
+rolls = 0
+while True:
+    choice = input("Do you want to roll the dice? (y/n) ").lower()
+    if choice == "y":
+        rolls += 1
+        pick = input("How many dice do you want to roll? (1/2) ")
+        if pick == "2":
+            dice1 = int(random.randint(1, 6))
+            dice2 = int(random.randint(1, 6))
+            print(f"Dice:[{dice1}] & [{dice2}]")
+        elif pick == "1":
+            dice1 = int(random.randint(1, 6))
+            print(f"Dice: [{dice1}]")
+        else:
+            print("Not a valid choice!")
+        print(f"Rolls: {rolls}")
+    elif choice == "n":
+        print("Thank you for playing the game! :)")
+        break
+    else:
+        print("Invalid choice, try again!")
+print(f"Total rolls: {rolls}")
