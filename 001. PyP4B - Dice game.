@@ -11,8 +11,8 @@ while True:
             dice2 = int(random.randint(1, 6))
             print(f"Dice:[{dice1}] & [{dice2}]")
         elif pick == "1":
-            dice1 = int(random.randint(1, 6))
-            print(f"Dice: [{dice1}]")
+            lone_dice = int(random.randint(1, 6))
+            print(f"Dice: [{lone_dice}]")
         else:
             print("Not a valid choice!")
         print(f"Rolls: {rolls}")
