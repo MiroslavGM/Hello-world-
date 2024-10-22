@@ -1,0 +1,35 @@
+import random
+
+try:
+    print("You have 10 guesses! Good luck!")
+    guess_limit = 10
+    minimum = int(input("Adjust the minimum number: "))
+    maximum = int(input("Adjust the maximum number: "))
+
+    if minimum >= maximum:
+        print("The minimum value must be less than the maximum!")
+        exit()
+
+    random_number = random.randint(minimum, maximum)
+
+    while guess_limit != 0:
+        guess = int(input(f"Guess the number between {minimum} and {maximum}: "))
+
+        if guess == random_number:
+            print("Congratulations! You guessed the number!")
+            break
+        elif guess > random_number:
+            print("Too high!")
+        else:
+            print("Too low!")
+
+        guess_limit -= 1
+        if guess_limit > 0:
+            print(f"Guesses left: {guess_limit}")
+        if guess_limit == 1:
+            print(f"Last chance! Make it count!")
+        if guess_limit == 0:
+            print(f"The correct number was: {random_number}")
+            print("You've run out of guesses. Game over!")
+except ValueError:
+    print("Invalid choice!")
