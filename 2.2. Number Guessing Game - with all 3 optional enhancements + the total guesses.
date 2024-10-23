@@ -1,0 +1,66 @@
+import random
+
+
+def play_game():
+    best_score = None
+    while True:
+        try:
+            minimum = int(input("Adjust the minimum number: "))
+            maximum = int(input("Adjust the maximum number: "))
+            guess_limit = int(input("Adjust maximum attempts to guess: "))
+        except ValueError:
+            print("Invalid choice! Please enter valid numbers.")
+            continue
+
+        if minimum >= maximum:
+            print("The minimum value must be less than the maximum!")
+            continue
+
+        print(f"You have {guess_limit} guesses! Good luck!")
+
+        random_number = random.randint(minimum, maximum)
+        total_guesses = 0
+
+        while guess_limit > 0:
+            try:
+                guess = int(input(f"Guess the number between {minimum} and {maximum}: "))
+            except ValueError:
+                print("Invalid choice! Please enter a valid number.")
+                continue
+
+            total_guesses += 1
+            if guess == random_number:
+                print(F"Congratulations! You guessed the number in {total_guesses} guesses!")
+                if best_score is None or total_guesses < best_score:
+                    best_score = total_guesses
+                    print(f"New best score: {best_score} guesses!")
+                break
+            elif guess > random_number:
+                print("Too high!")
+            else:
+                print("Too low!")
+
+            guess_limit -= 1
+
+            if guess_limit > 0:
+                print(f"Guesses left: {guess_limit}")
+            if guess_limit == 1:
+                print("Last chance! Make it count!")
+
+        if guess_limit == 0:
+            print(f"The correct number was: {random_number}")
+            print("You've run out of guesses. Game over!")
+
+        while True:
+            reset = input("Do you want to play again? (y/n): ").strip().lower()
+            if reset == "y":
+                print("Starting a new game!")
+                break
+            elif reset == "n":
+                print("Thank you for playing! Goodbye!")
+                return
+            else:
+                print('Invalid input. Please type "y" to play again or "n" to exit.')
+
+
+play_game()
