@@ -1,0 +1,58 @@
+import random
+
+
+def play_game():
+    while True:
+        guess_limit = 5
+        try:
+            minimum = int(input("Adjust the minimum number: "))
+            maximum = int(input("Adjust the maximum number: "))
+        except ValueError:
+            print("Invalid choice!")
+            continue
+
+        if minimum >= maximum:
+            print("The minimum value must be less than the maximum!")
+            continue
+
+        print(f"You have {guess_limit} guesses! Good luck!")
+
+        random_number = random.randint(minimum, maximum)
+
+        while guess_limit != 0:
+            try:
+                guess = int(input(f"Guess the number between {minimum} and {maximum}: "))
+            except ValueError:
+                print("Invalid choice!")
+                continue
+
+            if guess == random_number:
+                print("Congratulations! You guessed the number!")
+                break
+            elif guess > random_number:
+                print("Too high!")
+            else:
+                print("Too low!")
+
+            guess_limit -= 1
+            if guess_limit > 0:
+                print(f"Guesses left: {guess_limit}")
+            if guess_limit == 1:
+                print(f"Last chance! Make it count!")
+            if guess_limit == 0:
+                print(f"The correct number was: {random_number}")
+                print("You've run out of guesses. Game over!")
+        break
+    while True:
+        reset = input(f"Do you want to play again? (y/n): ").strip().lower()
+        if reset == "y":
+            print("Welcome back!")
+            play_game()
+        elif reset == "n":
+            print("Thank you for playing! Do come again!")
+            exit()
+        else:
+            print('Type "y" for restart or "n" for exit!')
+
+
+play_game()
