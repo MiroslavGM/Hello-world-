@@ -1,0 +1,50 @@
+import random
+
+
+def rock_paper_scissors_game():
+    while True:
+        rock_paper_scissors = input("Rock (r), paper (p) or scissors (s)? (r/p/s): ").strip().lower()
+        if rock_paper_scissors == "r":
+            print("You chose: ✊")
+            random1 = random.choice(["✊", "✋", "✌"])
+            print(F"Computer chose: {random1}")
+            if random1 == "✋":
+                print("You lose!")
+            elif random1 == "✊":
+                print("You are draw!")
+            else:
+                print("You won!")
+        elif rock_paper_scissors == "p":
+            print("You chose: ✋")
+            random2 = random.choice(["✊", "✋", "✌"])
+            print(F"Computer chose: {random2}")
+            if random2 == "✌":
+                print("You lose!")
+            elif random2 == "✋":
+                print("You are draw!")
+            else:
+                print("You won!")
+        elif rock_paper_scissors == "s":
+            print("You chose: ✌")
+            random3 = random.choice(["✊", "✋", "✌"])
+            print(F"Computer chose: {random3}")
+            if random3 == "✊":
+                print("You lose!")
+            elif random3 == "✌":
+                print("You are draw!")
+            else:
+                print("You won!")
+        else:
+            print("Invalid choice!")
+            continue
+        continue_playing = input("Do you want to continue? (y/n): ").strip().lower()
+        if continue_playing == "y":
+            continue
+        elif continue_playing == "n":
+            return
+        else:
+            print("Invalid choice!")
+            continue
+
+
+rock_paper_scissors_game()
