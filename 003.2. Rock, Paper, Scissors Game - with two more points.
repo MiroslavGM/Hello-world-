@@ -1,0 +1,71 @@
+import random
+
+
+def rock_paper_scissors_game():
+    choices = ("r", "p", "s")
+    emojis = {
+        "r": "✊",
+        "p": "✋",
+        "s": "✌"
+    }
+
+    player_total_wins = 0
+    player_total_loses = 0
+    player_total_draws = 0
+
+    player_round_wins = 0
+    computer_round_wins = 0
+
+    print("Two out of three to win!")
+
+    while True:
+        user_choice = input("Rock (r), paper (p) or scissors (s)? (r/p/s): ").strip().lower()
+        if user_choice not in choices:
+            print("Invalid choice!")
+            continue
+
+        computer_choice = random.choice(choices)
+
+        print(f"You chose {emojis[user_choice]}")
+        print(f"Computer chose {emojis[computer_choice]}")
+
+        if user_choice == computer_choice:
+            print("Draw!")
+            player_total_draws += 1
+        elif (
+            (user_choice == "r" and computer_choice == "s") or
+            (user_choice == "s" and computer_choice == "p") or
+            (user_choice == "p" and computer_choice == "r")
+        ):
+            print("You win!")
+            player_round_wins += 1
+            player_total_wins += 1
+        else:
+            print("You lose!")
+            computer_round_wins += 1
+            player_total_loses += 1
+
+        print(f"You: {player_round_wins} - Computer: {computer_round_wins}")
+        if player_round_wins == 2:
+            print("You won the game!")
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                break
+            else:
+                rock_paper_scissors_game()
+        elif computer_round_wins == 2:
+            print("You lost the game!")
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                break
+            else:
+                rock_paper_scissors_game()
+    print(f"""
+    Your stats in the game:
+    Wins: {player_total_wins}
+    Draws: {player_total_draws}
+    Loses: {player_total_loses}
+    """)
+
+
+rock_paper_scissors_game()
