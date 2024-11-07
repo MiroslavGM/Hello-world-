@@ -1,0 +1,164 @@
+import random
+
+
+choices = ("r", "p", "s")
+emojis = {
+    "r": "✊",
+    "p": "✋",
+    "s": "✌"
+}
+
+
+def single_player_mode():
+    player_total_wins = 0
+    player_total_loses = 0
+    player_total_draws = 0
+
+    player_round_wins = 0
+    computer_round_wins = 0
+
+    while True:
+        user_choice = input("Rock (r), paper (p) or scissors (s)? (r/p/s): ").strip().lower()
+        if user_choice not in choices:
+            print("Invalid choice!")
+            continue
+
+        computer_choice = random.choice(choices)
+
+        print(f"You chose {emojis[user_choice]}")
+        print(f"Computer chose {emojis[computer_choice]}")
+
+        if user_choice == computer_choice:
+            print("Draw!")
+            player_total_draws += 1
+        elif (
+            (user_choice == "r" and computer_choice == "s") or
+            (user_choice == "s" and computer_choice == "p") or
+            (user_choice == "p" and computer_choice == "r")
+        ):
+            print("You win!")
+            player_round_wins += 1
+            player_total_wins += 1
+        else:
+            print("You lose!")
+            computer_round_wins += 1
+            player_total_loses += 1
+
+        print(f"You: {player_round_wins} - Computer: {computer_round_wins}")
+        stats = (f"""
+        Your stats in the game:
+        Wins: {player_total_wins}
+        Draws: {player_total_draws}
+        Loses: {player_total_loses}
+        """)
+
+        if player_round_wins == 2:
+            print("You won the game!")
+            print(stats)
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                main()
+            else:
+                player_round_wins = 0
+                computer_round_wins = 0
+                continue
+        elif computer_round_wins == 2:
+            print("You lost the game!")
+            print(stats)
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                main()
+            else:
+                player_round_wins = 0
+                computer_round_wins = 0
+                continue
+
+
+def two_player_mode():
+    player1_total_wins = 0
+    player2_total_wins = 0
+    total_draws = 0
+
+    player1_round_wins = 0
+    player2_round_wins = 0
+
+    while True:
+        player1_choice = input("Player 1 - rock (r), paper (p) or scissors (s)? (r/p/s): ").strip().lower()
+        if player1_choice not in choices:
+            print("Invalid choice!")
+            continue
+
+        player2_choice = input("Player 2 - rock (r), paper (p) or scissors (s)? (r/p/s): ").strip().lower()
+        if player2_choice not in choices:
+            print("Invalid choice!")
+            continue
+
+        print(f"Player 1 chose {emojis[player1_choice]}")
+        print(f"Player 2 chose {emojis[player2_choice]}")
+
+        if player1_choice == player2_choice:
+            print("Draw!")
+            total_draws += 1
+        elif (
+            (player1_choice == "r" and player2_choice == "s") or
+            (player1_choice == "s" and player2_choice == "p") or
+            (player1_choice == "p" and player2_choice == "r")
+        ):
+            print("Player 1 won!")
+            player1_round_wins += 1
+            player1_total_wins += 1
+        else:
+            print("Player 2 won!")
+            player2_round_wins += 1
+            player2_total_wins += 1
+
+        print(f"Player 1: {player1_round_wins} - Player 2: {player2_round_wins}")
+        stats = (f"""
+        Statistics in the game:
+        Player 1 wins: {player1_total_wins}
+        Player 2 wins: {player2_total_wins}
+        Draws: {total_draws}
+        """)
+
+        if player1_round_wins == 2:
+            print("Player 1 won the game!")
+            print(stats)
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                main()
+            else:
+                player1_round_wins = 0
+                player2_round_wins = 0
+                continue
+        elif player2_round_wins == 2:
+            print("Player 2 won the game!")
+            print(stats)
+            continue_playing = input('Press "n" to exit or any button to continue? ').strip().lower()
+            if continue_playing == "n":
+                main()
+            else:
+                player1_round_wins = 0
+                player2_round_wins = 0
+                continue
+
+
+def main():
+    print("Welcome to Rock, Paper, Scissors!")
+    mode = input("Choose game mode: 1 (Single-player) or 2 (Two-player), or n (to exit): ")
+
+    if mode == '1':
+        print("You play two out of three! Good luck!")
+        single_player_mode()
+    elif mode == '2':
+        print("You play two out of three! Good luck!")
+        two_player_mode()
+    elif mode == 'n':
+        print("Thank you for playing. See you soon.")
+        exit()
+    else:
+        print("Invalid mode. Please choose 1 or 2, or n.")
+        main()
+
+
+if __name__ == "__main__":
+    main()
