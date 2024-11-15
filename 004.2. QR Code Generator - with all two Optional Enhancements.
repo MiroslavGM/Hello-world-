@@ -1,0 +1,75 @@
+import qrcode
+
+
+def qr_code_generator():
+    try:
+        data = input("Enter the text or URL: ").strip()
+        filename = input("Enter the filename: ").strip()
+
+        qr = qrcode.QRCode(box_size=10, border=4)
+        qr.add_data(data)
+
+        classic_or_colorful = input("Do you want to customize the colors? (y/n) ").strip().lower()
+        if classic_or_colorful == "n":
+            image = qr.make_image(fill_color="black", back_color="white")
+            image.save(filename)
+        elif classic_or_colorful == "y":
+            print("Enter the intensity of RGB (red, green and blue) for the back color.")
+            back_red = int(input("Intensity of red (RGB) from 0 to 255: "))
+            back_green = int(input("Intensity of green (RGB) from 0 to 255: "))
+            back_blue = int(input("Intensity of blue (RGB) from 0 to 255: "))
+
+            print("Enter the intensity of RGB (red, green and blue) for the fill color.")
+            fill_red = int(input("Intensity of red (RGB) from 0 to 255: "))
+            fill_green = int(input("Intensity of green (RGB) from 0 to 255: "))
+            fill_blue = int(input("Intensity of blue (RGB) from 0 to 255: "))
+
+            image = qr.make_image(
+                back_color=(back_red, back_green, back_blue),
+                fill_color=(fill_red, fill_green, fill_blue))
+            image.save(filename)
+        else:
+            print("Invalid choice")
+            qr_code_generator()
+
+        print(f"QR code saved as {filename}")
+    except ValueError:
+        print("Invalid choice!")
+        qr_code_generator()
+
+
+def fast_multiple_qr_codes():
+    try:
+        count = int(input("How many QR codes do you want to generate? "))
+        while count != 0:
+            data = input("Enter the text or URL: ").strip()
+            filename = input("Enter the filename: ").strip()
+
+            qr = qrcode.QRCode(box_size=10, border=4)
+            qr.add_data(data)
+
+            image = qr.make_image(fill_color="black", back_color="white")
+            image.save(filename)
+
+            print(f"QR code saved as {filename}")
+            count -= 1
+
+    except ValueError:
+        print("Invalid choice!")
+        fast_multiple_qr_codes()
+
+
+def main():
+    choosing = input(
+        "Do you want to make one quick or custom QR code (1) or multiple fast QR codes (n)? (1/n): ").strip().lower()
+    if choosing == "1":
+        qr_code_generator()
+    elif choosing == "n":
+        fast_multiple_qr_codes()
+    else:
+        print("Invalid choice!")
+        main()
+
+
+if __name__ == "__main__":
+    main()
