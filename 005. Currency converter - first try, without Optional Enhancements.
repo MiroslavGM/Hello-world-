@@ -1,0 +1,87 @@
+print("""
+Welcome to my currency converter :)
+Exchange rates today:
+    USD = 1.00000
+    EUR = 0.95255
+    CAD = 1.40610
+""")
+
+
+def amount_money():
+    while True:
+        enter_amount = float(input("Enter the amount: ").strip())
+        if enter_amount > 0:
+            return enter_amount
+        else:
+            print("Invalid choice!")
+            continue
+
+
+def selecting_source_currency():
+    while True:
+        source_currency = input("Source currency (USD/EUR/CAD): ").strip().upper()
+        if source_currency != ("USD" or "EUR" or "CAD"):
+            print("Invalid choice. Please try again!")
+            continue
+        else:
+            return source_currency
+
+
+def selecting_target_currency():
+    while True:
+        target_currency = input("Target currency (USD/EUR/CAD): ").strip().upper()
+        if target_currency != ("USD" or "EUR" or "CAD"):
+            print("Invalid choice. Please try again!")
+            continue
+        else:
+            return target_currency
+
+
+def currency_calculating(source_currency, target_currency, enter_amount):
+    if source_currency == target_currency:
+        result = enter_amount
+        return result
+    # USD:
+    elif source_currency == "USD" and target_currency == "EUR":
+        result = enter_amount * 0.95
+        return result
+    elif source_currency == "USD" and target_currency == "CAD":
+        result = enter_amount * 1.41
+        return result
+    # EUR:
+    elif source_currency == "EUR" and target_currency == "USD":
+        result = enter_amount * 1.05
+        return result
+    elif source_currency == "EUR" and target_currency == "CAD":
+        result = enter_amount * 1.48
+        return result
+    # CAD:
+    elif source_currency == "CAD" and target_currency == "USD":
+        result = enter_amount * 0.71
+        return result
+    elif source_currency == "CAD" and target_currency == "EUR":
+        result = enter_amount * 0.68
+        return result
+    else:
+        print("Error")
+
+
+def results(result, enter_amount, source_currency, target_currency):
+    print(f"{enter_amount} {source_currency} is equal to {result} {target_currency}")
+
+
+def currency_converter():
+    while True:
+        enter_amount = amount_money()
+        source_currency = selecting_source_currency()
+        target_currency = selecting_target_currency()
+        result = currency_calculating(source_currency, target_currency, enter_amount)
+        results(result, enter_amount, source_currency, target_currency)
+
+        should_continue = input("Continue? (y/n): ").strip().lower()
+        if should_continue == "n":
+            break
+
+
+if __name__ == "__main__":
+    currency_converter()
