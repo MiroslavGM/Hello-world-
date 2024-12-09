@@ -1,0 +1,282 @@
+exchange_rates = {
+    "USD": {"EUR": 0.95, "CAD": 1.42, "GBP": 0.79, "BGN": 1.85},
+    "EUR": {"USD": 1.06, "CAD": 1.50, "GBP": 0.83, "BGN": 1.96},
+    "CAD": {"USD": 0.71, "EUR": 0.67, "GBP": 0.55, "BGN": 1.31},
+    "GBP": {"USD": 1.28, "EUR": 1.21, "CAD": 1.80, "BGN": 2.36},
+    "BGN": {"USD": 0.54, "EUR": 0.51, "CAD": 0.77, "GBP": 0.42}
+}
+
+usd_rates = ", ".join([f"{currency}: {rate:.2f}" for currency, rate in exchange_rates["USD"].items()])
+eur_rates = ", ".join([f"{currency}: {rate:.2f}" for currency, rate in exchange_rates["EUR"].items()])
+cad_rates = ", ".join([f"{currency}: {rate:.2f}" for currency, rate in exchange_rates["CAD"].items()])
+gbp_rates = ", ".join([f"{currency}: {rate:.2f}" for currency, rate in exchange_rates["GBP"].items()])
+bgn_rates = ", ".join([f"{currency}: {rate:.2f}" for currency, rate in exchange_rates["BGN"].items()])
+
+welcoming_exchange = f"""
+Welcome to my currency converter!
+Exchange rates today against USD -> {usd_rates}
+Exchange rates today against EUR -> {eur_rates}
+Exchange rates today against CAD -> {cad_rates}
+Exchange rates today against GBP -> {gbp_rates}
+Exchange rates today against BGN -> {bgn_rates}
+"""
+print(welcoming_exchange)
+conversion_history = ["No history for now."]
+
+
+def amount_money():
+    while True:
+        try:
+            enter_amount = float(input("Enter amount: ").strip())
+            if enter_amount > 0:
+                return enter_amount
+            else:
+                print("Invalid choice!")
+                continue
+        except ValueError:
+            print("Invalid choice!")
+            continue
+
+
+def selecting_source_currency():
+    while True:
+        source_currency = input(f"Source currency ({"/".join(exchange_rates.keys())}): ").strip().upper()
+        if source_currency not in exchange_rates.keys():
+            print("Invalid choice. Please try again!")
+            continue
+        else:
+            return source_currency
+
+
+def selecting_target_currency():
+    while True:
+        target_currency = input(f"Target currency ({"/".join(exchange_rates.keys())}): ").strip().upper()
+        if target_currency not in exchange_rates.keys():
+            print("Invalid choice. Please try again!")
+            continue
+        else:
+            return target_currency
+
+
+def currency_calculating(source_currency, target_currency, enter_amount):
+    if source_currency == target_currency:
+        result = enter_amount
+        return result
+
+    # USD:
+    elif source_currency == list(exchange_rates.keys())[0] and target_currency == list(exchange_rates.keys())[1]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[0] and target_currency == list(exchange_rates.keys())[2]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[0] and target_currency == list(exchange_rates.keys())[3]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[0] and target_currency == list(exchange_rates.keys())[4]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    # EUR:
+    elif source_currency == list(exchange_rates.keys())[1] and target_currency == list(exchange_rates.keys())[0]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[1] and target_currency == list(exchange_rates.keys())[2]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[1] and target_currency == list(exchange_rates.keys())[3]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[1] and target_currency == list(exchange_rates.keys())[4]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    # CAD:
+    elif source_currency == list(exchange_rates.keys())[2] and target_currency == list(exchange_rates.keys())[0]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[2] and target_currency == list(exchange_rates.keys())[1]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[2] and target_currency == list(exchange_rates.keys())[3]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[2] and target_currency == list(exchange_rates.keys())[4]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    # GBP:
+    elif source_currency == list(exchange_rates.keys())[3] and target_currency == list(exchange_rates.keys())[0]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[3] and target_currency == list(exchange_rates.keys())[1]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[3] and target_currency == list(exchange_rates.keys())[2]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["BGN"]:.2f} {list(exchange_rates.keys())[4]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[3] and target_currency == list(exchange_rates.keys())[4]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    # BGN:
+    elif source_currency == list(exchange_rates.keys())[4] and target_currency == list(exchange_rates.keys())[0]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[4] and target_currency == list(exchange_rates.keys())[1]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[4] and target_currency == list(exchange_rates.keys())[2]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["GBP"]:.2f} {list(exchange_rates.keys())[3]}""")
+        return result
+
+    elif source_currency == list(exchange_rates.keys())[4] and target_currency == list(exchange_rates.keys())[3]:
+        result = enter_amount * exchange_rates[source_currency][target_currency]
+        print(f"""
+Other exchanges:
+{enter_amount * exchange_rates[source_currency]["USD"]:.2f} {list(exchange_rates.keys())[0]}
+{enter_amount * exchange_rates[source_currency]["EUR"]:.2f} {list(exchange_rates.keys())[1]}
+{enter_amount * exchange_rates[source_currency]["CAD"]:.2f} {list(exchange_rates.keys())[2]}""")
+        return result
+
+    else:
+        print("Error")
+
+
+def results(result, enter_amount, source_currency, target_currency):
+    last_result = f"""
+Your target exchange: {enter_amount:.2f} {source_currency} is equal to {result:.2f} {target_currency}
+"""
+    print(last_result)
+    conversion_history.append(f"Last conversion: "
+                              f"{enter_amount:.2f} {source_currency} -> {result:.2f} {target_currency}")
+    conversion_history.pop(0)
+    return last_result
+
+
+def currency_converter():
+    while True:
+        print(f"Last conversion you did: {conversion_history[-1]}")
+        enter_amount = amount_money()
+        source_currency = selecting_source_currency()
+        target_currency = selecting_target_currency()
+        result = currency_calculating(source_currency, target_currency, enter_amount)
+        results(result, enter_amount, source_currency, target_currency)
+
+        should_continue = input("Do You want to do a new conversion? (y/n): ").strip().lower()
+        if should_continue == "n":
+            print(f"Thank You for using my currency converter! Please come again!")
+            break
+
+
+if __name__ == "__main__":
+    currency_converter()
