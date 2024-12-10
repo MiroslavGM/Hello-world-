@@ -1,0 +1,30 @@
+score = 0
+
+print(f"""
+Question 1: What is the capital of France?
+a) Paris
+b) London
+c) Rome""")
+
+answer_1 = input(f"Your answer: ")
+if answer_1 == "a".strip().lower():
+    print(f"Correct!")
+    score += 1
+else:
+    print(f"False!")
+
+print(f"""
+Question 2: What is the largest planet in our solar system?
+a) Earth
+b) Jupiter
+c) Mars""")
+
+answer_2 = input(f"Your answer: ")
+if answer_2 == "b".strip().lower():
+    print(f"Correct!")
+    score += 1
+else:
+    print(f"False!")
+
+print(f"""
+Your final score: {score}/2""")
