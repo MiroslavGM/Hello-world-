@@ -1,0 +1,73 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+x1 = np.array([0, 1, 2, 3, 4])
+y1 = np.array([0, 3, 8, 1, 10])
+
+x2 = np.array([0, 1, 2, 3, 4])
+y2 = np.array([0, 6, 2, 7, 11])
+
+plt.subplot(3, 3, 1)
+plt.plot(x1, y1, "o-")
+plt.title("Sales")
+
+plt.subplot(3, 3, 2)
+plt.plot(x2, y2, "o-")
+# plt.plot(sub_ypoints, marker="o", ms=20, mec="g", mfc="hotpink", linestyle=":", linewidth="20.5")
+
+font1 = {"family": "serif", "color": "blue", "size": 20}
+font2 = {"family": "serif", "color": "darkred", "size": 15}
+
+plt.title("Sports watch data", fontdict=font1, loc="left")
+plt.xlabel("Average Pulse", fontdict=font2)
+plt.ylabel("Calorie Burnage", fontdict=font2)
+
+plt.grid(axis="x", color="green", linestyle="--", linewidth="0.5")
+
+plt.subplot(3, 3, 3)
+plt.plot(x1, y1, "o-")
+plt.title("Sales")
+
+plt.suptitle("My shop")
+
+plt.subplot(3, 3, 4)
+colors = np.array([0, 25, 50, 75, 100])
+sizes = np.array([0, 25, 50, 75, 100])
+plt.scatter(x1, y1, c=colors, cmap="viridis", s=sizes, alpha=0.5)
+plt.title("Scatter")
+
+plt.subplot(3, 3, 4)
+plt.scatter(x2, y2, color="red")
+plt.title("Scatter")
+
+plt.colorbar()
+
+plt.subplot(3, 3, 5)
+plt.bar(x2, y2, color="red")
+plt.title("Bars")
+
+
+x3 = ["Apples", "Bananas"]
+y3 = [400, 500]
+plt.subplot(3, 3, 6)
+plt.bar(x3, y3, color="yellow", width=0.25)
+plt.title("Bars")
+
+plt.subplot(3, 3, 7)
+plt.barh(x3, y3, color="yellow", height=0.4)
+plt.title("Bars - horizontal")
+
+x4 = np.random.normal(170, 10, 250)
+plt.subplot(3, 3, 8)
+plt.hist(x4)
+
+plt.subplot(3, 3, 9)
+y5 = np.array([35, 25, 25, 15])
+my_labels = ["Apples", "Bananas", "Oranges", "Dates"]
+my_colors = ["red", "yellow", "orange", "brown"]
+my_explode = [0.2, 0, 0, 0]
+plt.pie(y5, labels=my_labels, startangle=100, explode=my_explode, shadow=True, colors=my_colors)
+# plt.legend(title="Fruits")
+
+plt.show()
