@@ -1,0 +1,247 @@
+import numpy as np
+from math import log
+
+
+x = [1, 2, 3, 4]
+y = [4, 5, 6, 7]
+z = []
+for i, j in zip(x, y):
+    z.append(i + j)
+print(z)
+print(type(z))
+
+x = [1, 2, 3, 4]
+y = [4, 5, 6, 7]
+z = np.add(x, y)
+print(z)
+print(type(z))
+
+
+def my_add(a, b):
+    return a + b
+
+
+my_add = np.frompyfunc(my_add, 2, 1)
+
+print(my_add([1, 2, 3, 4], [5, 6, 7, 8]))
+
+arr1 = np.array([10, 11])
+arr2 = np.array([20, 21])
+
+new_arr = np.add(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([20, 21])
+
+new_arr = np.subtract(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([20, 21])
+
+new_arr = np.multiply(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([20, 21])
+
+new_arr = np.divide(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([18, 10])  # after 18 it breaks.
+
+new_arr = np.power(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([18, 10])
+
+new_arr = np.mod(arr1, arr2)  # can use "remainder()", too, for the same result!
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([18, 10])
+
+new_arr = np.remainder(arr1, arr2)  # can use "mod()", too, for the same result as above!
+print(new_arr)
+
+arr1 = np.array([10, 11])
+arr2 = np.array([18, 10])
+
+new_arr = np.divmod(arr1, arr2)
+print(new_arr)
+
+arr = np.array([-1, -2, 1, 2, 3, -4, 0.1])
+
+new_arr = np.absolute(arr)  # I should use "absolute()" in NumPy, so I don't be confused from "math.abs() {abs()}".
+print(new_arr)
+
+arr = np.trunc([-3.1666, 3.6667])  # can use "fix()", too, for the same result!
+print(arr)
+
+arr = np.fix([-3.1666, 3.6667])  # can use "trunc()", too, for the same result as above!
+print(arr)
+
+arr = np.around(3.1666, 2)
+print(arr)
+
+arr = np.floor([-3.1666, 3.6667])
+print(arr)
+
+arr = np.ceil([-3.1666, 3.6667])
+print(arr)
+
+arr = np.arange(1, 10)
+print(np.log2(arr))
+
+arr = np.arange(1, 10)
+print(np.log10(arr))
+
+arr = np.arange(1, 10)
+print(np.log(arr))
+
+np_log = np.frompyfunc(log, 2, 1)
+print(np_log(100, 15))
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+new_arr = np.add(arr1, arr2)
+print(new_arr)
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+new_arr = np.sum([arr1, arr2])
+print(new_arr)
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+new_arr = np.sum([arr1, arr2], axis=1)
+print(new_arr)
+
+arr = np.array([1, 2, 3])
+new_arr = np.cumsum(arr)
+print(new_arr)
+
+arr = np.array([1, 2, 3, 4])
+new_arr = np.prod(arr)
+print(new_arr)
+
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+new_arr = np.prod([arr1, arr2])
+print(new_arr)
+
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+new_arr = np.prod([arr1, arr2], axis=1)
+print(new_arr)
+
+arr = np.array([5, 6, 7, 8])
+new_arr = np.cumprod(arr)
+print(new_arr)
+
+arr = np.array([10, 15, 25, 5])
+new_arr = np.diff(arr)
+print(new_arr)
+
+arr = np.array([10, 15, 25, 5])
+new_arr = np.diff(arr, n=2)
+print(new_arr)
+
+arr = np.array([10, 15, -25, 5])
+new_arr = np.diff(arr)
+print(new_arr)
+
+num1 = 4
+num2 = 6
+x = np.lcm(num1, num2)
+print(x)
+
+arr = np.array([3, 6, 9])
+x = np.lcm.reduce(arr)
+print(x)
+
+arr = np.arange(1, 11)
+x = np.lcm.reduce(arr)
+print(x)
+
+num1 = 6
+num2 = 9
+x = np.gcd(num1, num2)
+print(x)
+
+arr = np.array([2, 4, 6, 8])
+x = np.gcd.reduce(arr)
+print(x)
+
+arr = np.array([20, 8, 32, 36, 16])
+x = np.gcd.reduce(arr)
+print(x)
+
+x = np.sin(np.pi/2)
+print(np.pi)
+print(x)
+
+arr = np.array([np.pi/2, np.pi/3, np.pi/4, np.pi/5])
+x = np.sin(arr)
+print(x)
+
+arr = np.array([90, 180, 270, 360])
+x = np.deg2rad(arr)
+print(x)
+print(np.pi)
+
+arr = np.array([np.pi/2, np.pi, 1.5*np.pi, 2*np.pi])
+x = np.rad2deg(arr)
+print(x)
+
+x = np.arcsin(1.0)
+print(x)
+
+arr = np.array([1, -1, 0.1])
+x = np.arcsin(arr)
+print(x)
+
+base = 3
+perp = 4
+x = np.hypot(base, perp)
+print(x)
+
+x = np.sinh(np.pi/2)
+print(x)
+
+arr = np.array([np.pi/2, np.pi/3, np.pi/4, np.pi/5])
+print(np.cosh(arr))
+
+x = np.arcsinh(1.0)
+print(x)
+
+arr = np.array([0.1, 0.2, 0.5])
+x = np.arctanh(arr)
+print(x)
+
+arr = np.array([1, 1, 1, 2, 3, 4, 5, 5, 6, 7])
+x = np.unique(arr)
+print(x)
+
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+x = np.union1d(arr1, arr2)
+print(x)
+
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+x = np.intersect1d(arr1, arr2, assume_unique=True)
+print(x)
+
+set1 = np.array([1, 2, 3, 4])
+set2 = np.array([3, 4, 5, 6])
+new_set = np.setdiff1d(set1, set2, assume_unique=True)
+print(new_set)
+
+set1 = np.array([1, 2, 3, 4])
+set2 = np.array([3, 4, 5, 6])
+new_set = np.setxor1d(set1, set2, assume_unique=True)
+print(new_set)
