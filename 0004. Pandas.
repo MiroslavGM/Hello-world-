@@ -1,0 +1,195 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import csv
+import json
+
+
+my_data_set = {
+    "cars": ["BMW", "Volvo", "Ford"],
+    "passings": [3, 7, 2]
+}
+
+df = pd.DataFrame(my_data_set)
+print(df)
+print(pd.__version__)
+
+a = [1, 7, 2]
+df = pd.Series(a)
+print(df)
+print(df[0])
+
+a = [1, 7, 2]
+df = pd.Series(a, index=["x", "y", "z"])
+print(df)
+print(df["y"])
+
+calories = {
+    "day1": 420,
+    "day2": 380,
+    "day3": 390
+}
+df = pd.Series(calories)
+print(df)
+
+df = pd.Series(calories, index=["day1", "day2"])
+print(df)
+
+data = {
+    "calories": [420, 380, 390],
+    "duration": [50, 40, 45]
+}
+df = pd.DataFrame(data)
+print(df)
+print(df.loc[0])
+print(df.loc[[0, 1]])
+df = pd.DataFrame(data, index=["day1", "day2", "day3"])
+print(df)
+print(df.loc["day2"])
+
+# df = pd.read_csv("data.csv")
+# print(df)
+
+# data = {
+#     "calories": [420, 380, 390],
+#     "duration": [50, 40, 45]
+# }
+# df = pd.DataFrame(data)
+# df.to_csv("my_data.csv", index=False)
+# print("CSV file created!")
+# df = pd.read_csv("my_data.csv")
+# print(df.to_string())
+
+df = pd.read_csv("data.csv")
+print(df.to_string())
+
+print(df)
+
+print(pd.options.display.max_rows)
+
+pd.options.display.max_rows = 9999
+df = pd.read_csv("data.csv")
+print(df)
+
+# fd = open("data.csv")
+# reader = csv.DictReader(fd)
+# print(json.dumps(list(reader), indent=2))
+#
+# csv_file_path = "data.csv"
+# json_file_path = "data.json"
+# data = []
+# with open(csv_file_path, mode="r", encoding="utf-8") as csv_file:
+#     csv_reader = csv.DictReader(csv_file)
+#     for row in csv_reader:
+#         data.append(row)
+# with open(json_file_path, mode="w", encoding="utf-8") as json_file:
+#     json.dump(data, json_file, indent=4)
+# print(f"Converted {csv_file_path} to {json_file_path}")
+
+df = pd.read_json("data.json")
+print(df.to_string())
+
+dictionary = {
+    "history": {
+        "easy": {
+            "What is the first name of emperor Aurelius a. k. a. the Philosopher king": {"Marcus", "Nerva", "Trajan"},
+            "Who invented the Tesla coil?": {"Nikola Tesla", "Thomas Edison", "Albert Einstein"}
+        },
+        "normal": {
+            "Which year did World War II start?": {1939, 1945, 1918},
+            "When did the Renaissance end?": {"17th century", "14th century", "15th century"}
+        },
+        "hard": {
+            "Period of the Enlightenment?": {"1685-1815", "1542-1687", "1760-1840"},
+            "When did we discover penicillin?": {1928, 1942, 1969}
+        }
+    },
+    "science": {
+        "easy": {
+            "What is the largest planet in our solar system?": {"Jupiter", "Earth", "Saturn"},
+            "Who invented the Tesla coil?": {"Nikola Tesla", "Thomas Edison", "Albert Einstein"}
+        },
+        "normal": {
+            "How much more energy does Saturn generate than it receives from the Sun?": {1.8, 0.0, -0.5},
+            "The fastest animal in the world (air, water, earth)?": {"Peregrine falcon", "Black Marlin", "Cheetah"}
+        },
+        "hard": {
+            "The best electrical conductor": {"Silver", "Copper", "Gold"},
+            "At what temperature are Celsius and Fahrenheit equal?": {-40, 0, -17}
+        }
+    },
+    "geography": {
+        "easy": {
+            "What is the capital of France?": {"Paris", "London", "Rome"},
+            "What is the highest altitude above mean sea level?": {"Mount Everest", "Mount Chimborazo", "Mauna Kea"}
+        },
+        "normal": {
+            "What is the capital of the Netherlands?": {"Amsterdam", "Rotterdam", "Groningen"},
+            "What is the tallest mountain from base to peak?": {"Mauna Kea", "Himalayas", "Chimborazo"}
+        },
+        "hard": {
+            "What is the capital city of Iceland": {"Reykjavic", "Akureyri", "Husavik"},
+            "What mountain is the furthest from Earth's center??": {"Chimborazo", "Mauna Kea", "Himalayas"}
+        }
+    }
+}
+df = pd.DataFrame(dictionary)
+print(df)
+
+df = pd.read_csv("data.csv")
+print(df.head())
+print(df.head(10))
+print(df.tail())
+print(df.info())
+
+print(df)
+new_df = df.dropna()
+print(new_df.to_string())
+
+# df.dropna(inplace=True)  # This is for changing the ORIGINAL DataFrame (removing rows with NaN)
+
+# df.fillna(130, inplace=True)  # This is for changing the ORIGINAL DataFrame (adding something to the place of NaN)
+
+# df["Calories"].fillna(130, inplace=True)  # This is for changing the ORIGINAL DataFrame (only in one column)
+
+# new_df_mean = df["Calories"].mean()
+# print(new_df_mean)
+# df["Calories"].fillna(new_df_mean, inplace=True)
+# print(df.to_string())
+
+# new_df_median = df["Calories"].median()
+# print(new_df_median)
+# df["Calories"].fillna(new_df_median, inplace=True)
+# print(df.to_string())
+
+# new_df_mode = df["Calories"].mode()
+# print(new_df_mode)
+# df["Calories"].fillna(new_df_mode, inplace=True)
+# print(df.to_string())
+
+# df["Date"] = pd.to_datetime(df["Date"])
+# print(df.to_string())
+# df.dropna(subset=["Date"], inplace=True)
+
+# df.loc[69, "Duration"] = 30
+
+# for x in df.index:
+#     if df.loc[x, "Duration"] > 120:
+#         df.loc[x, "Duration"] = 120
+
+# for x in df.index:
+#     if df.loc[x, "Duration"] > 120:
+#         df.drop(x, inplace=True)
+
+print(df.duplicated())
+# df.drop_duplicates(inplace=True)
+
+print(df.corr())
+
+# df.plot()
+# plt.show()
+
+# df.plot(kind="scatter", x="Duration", y="Calories")
+# plt.show()
+
+df["Duration"].plot(kind="hist")
+plt.show()
