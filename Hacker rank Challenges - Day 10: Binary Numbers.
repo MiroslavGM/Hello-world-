@@ -1,0 +1,25 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+in_binary = bin(n)[2:]
+count = 0
+maximum = []
+
+for b in in_binary:
+    if b == "1":
+        count += 1
+    else:
+        maximum.append(count)
+        count = 0
+
+maximum.append(count)
+print(max(maximum))
