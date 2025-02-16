@@ -1,0 +1,11 @@
+import numpy
+
+
+ages = [5, 32, 43, 48, 50, 41, 7, 11, 15, 39, 80, 82, 32, 2, 8, 6, 25, 36, 27, 61, 31]
+print(len(ages))
+
+q3 = numpy.percentile(ages, 75)
+print(q3)
+
+p90 = numpy.percentile(ages, 90)
+print(p90)
