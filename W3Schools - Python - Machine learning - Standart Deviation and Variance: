@@ -1,0 +1,40 @@
+import math
+import numpy
+
+
+speed = [86, 87, 88, 86, 87, 85, 86]
+print(numpy.std(speed))
+
+speed = [32, 111, 138, 28, 59, 77, 97]
+print(numpy.std(speed))
+mean_speed = numpy.mean(speed)
+print(mean_speed)
+
+list_diff = []
+
+for diff in speed:
+    x = diff - mean_speed
+    c = round(x, 1)
+    print(c)
+    list_diff.append(c)
+
+list_for_variance = []
+
+for square_values in list_diff:
+    y = square_values ** 2
+    z = round(y, 2)
+    list_for_variance.append(z)
+    print(z)
+
+variance = numpy.mean(list_for_variance)
+rounded_variance = round(variance, 1)
+print(rounded_variance)
+
+variance_function = numpy.var(speed)
+print(variance_function)
+
+standard_deviation = math.sqrt(variance_function)
+print(standard_deviation)
+
+standard_deviation_function = numpy.std(speed)
+print(standard_deviation_function)
