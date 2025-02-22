@@ -1,0 +1,10 @@
+if __name__ == '__main__':
+    n = int(input())
+    
+sample_output = []
+
+for func in range(n):
+    sample_output.append(func + 1)
+    
+for printing in sample_output:
+    print(printing, end="")
