@@ -1,0 +1,32 @@
+small_letters = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        ]
+        
+big_letters = [
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        ]
+
+def swap_case(s):
+    listing_input = list(s)
+    this_is_it = []
+    
+    for all_in in listing_input:
+        for small_in, big_in in zip(small_letters, big_letters):
+            if all_in == small_in:
+                small_letter = all_in.upper()
+                this_is_it.append(small_letter)
+            elif all_in == big_in:
+                big_letter = all_in.lower()
+                this_is_it.append(big_letter)
+            elif all_in not in small_letters and all_in not in big_letters:
+                this_is_it.append(all_in)
+                break
+                
+                
+    return "".join(this_is_it)
+
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
