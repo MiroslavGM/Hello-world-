@@ -1,0 +1,10 @@
+first = input().strip()
+second = input().strip()
+l = []
+
+for numbers in second.replace(" ", ""):
+    l.append(int(numbers))
+
+t = tuple(l)
+result = hash(t)
+print(result)
