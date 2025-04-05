@@ -1,0 +1,28 @@
+while True:
+    try:
+        first = int(input("Enter a number of integers: ").strip())
+        if first <= 0:
+            print("You need to enter one integer above 0!")
+            continue
+            
+        second = input(
+            f"Enter {first} space-separated integers: ").strip()
+        numbers_list = second.split()
+
+        if len(numbers_list) != first:
+            print(f"You must enter exactly {first} integers!")
+            continue
+            
+        break
+        
+    except ValueError:
+        print("Invalid input! Please enter a valid integer(s).")
+
+l = []
+
+for numbers in numbers_list:
+    l.append(int(numbers))
+
+t = tuple(l)
+result = hash(t)
+print(result)
