@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram, linkage
+from sklearn.cluster import AgglomerativeClustering
+
+
+x = np.random.uniform(0, 100, 1000)
+y = np.random.uniform(0, 100, 1000)
+
+data = list(zip(x, y))
+
+hierarchical_cluster = AgglomerativeClustering(n_clusters=4, linkage='ward')
+labels = hierarchical_cluster.fit_predict(data)
+
+# second diagram # linkage_data = linkage(data, method='ward', metric='euclidean')
+# second diagram # dendrogram(linkage_data)
+
+# first diagram # plt.scatter(x, y)
+
+plt.scatter(x, y, c=labels)
+plt.show()
