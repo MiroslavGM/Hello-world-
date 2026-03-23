@@ -1,0 +1,30 @@
+import pandas as pd
+from sklearn import linear_model
+
+
+cars = pd.read_csv(r'D:/IT Coding (Code)/Downloaded data!/data.csv')
+print(cars.to_string())
+
+ohe_cars = pd.get_dummies(cars[['Car']]).astype(int)
+print(ohe_cars.to_string())
+
+X = pd.concat([cars[['Volume', 'Weight']], ohe_cars], axis=1)
+y = cars['CO2']
+
+regr = linear_model.LinearRegression()
+regr.fit(X, y)
+
+# predict the CO2 emission of a Volkswagen where the weight is 2300kg, and the volume is 1300cm3:
+predictedCO2 = regr.predict([[2300, 1300, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
+
+print(predictedCO2)
+
+
+# Dummifying
+colors = pd.DataFrame({'color': ['blue', 'red', 'green']})
+print(colors)
+
+dummies = pd.get_dummies(colors, drop_first=True)
+dummies['color'] = colors['color']
+
+print(dummies)
